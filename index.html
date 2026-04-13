@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRON CULT - Tienda de Suplementos y Equipamiento Fitness</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root {
+--iron-black: #0D0D0D;
+--iron-dark: #1A1A1A;
+--iron-red: #C41E3A;
+--iron-orange: #FF4500;
+--iron-gold: #D4AF37;
+--iron-white: #F5F5F5;
+--iron-gray: #3A3A3A;
+--iron-light-gray: #CCCCCC;
+--text-primary: #FFFFFF;
+--text-secondary: #B8B8B8;
+}
+
+body {
+font-family: 'Barlow', sans-serif;
+background: var(--iron-black);
+color: var(--text-primary);
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+.top-bar {
+background: var(--iron-dark);
+border-bottom: 2px solid var(--iron-red);
+padding: 0.5rem 0;
+font-size: 0.9rem;
+}
+
+.top-bar-content {
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.top-bar-left {
+display: flex;
+gap: 2rem;
+}
+
+.top-bar-left span {
+color: var(--text-secondary);
+}
+
+.top-bar-left span strong {
+color: var(--iron-orange);
+}
+
+.top-bar-right {
+display: flex;
+gap: 1.5rem;
+}
+
+.top-bar-right a {
+color: var(--text-secondary);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.top-bar-right a:hover {
+color: var(--iron-red);
+}
+
+.header {
+background: var(--iron-black);
+border-bottom: 3px solid var(--iron-red);
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 5px 30px rgba(196, 30, 58, 0.3);
+}
+
+.header-content {
+max-width: 1400px;
+margin: 0 auto;
+padding: 1.5rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 2rem;
+}
+
+.logo {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3rem;
+font-weight: 700;
+letter-spacing: 3px;
+background: linear-gradient(135deg, var(--iron-red) 0%, var(--iron-orange) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+cursor: pointer;
+transition: all 0.3s ease;
+text-shadow: 0 0 30px rgba(196, 30, 58, 0.5);
+position: relative;
+}
+
+.logo::before {
+content: '💪';
+position: absolute;
+left: -50px;
+font-size: 2.5rem;
+filter: grayscale(100%) brightness(0) invert(1);
+}
+
+.logo:hover {
+transform: scale(1.05);
+}
+
+.search-bar {
+flex: 1;
+max-width: 600px;
+position: relative;
+}
+
+.search-bar input {
+width: 100%;
+background: var(--iron-dark);
+border: 2px solid var(--iron-gray);
+color: var(--text-primary);
+padding: 1rem 3.5rem 1rem 1.5rem;
+border-radius: 50px;
+font-size: 1rem;
+font-family: 'Barlow', sans-serif;
+transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+outline: none;
+border-color: var(--iron-red);
+box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+}
+
+.search-bar button {
+position: absolute;
+right: 5px;
+top: 50%;
+transform: translateY(-50%);
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+border: none;
+color: white;
+padding: 0.8rem 1.5rem;
+border-radius: 50px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-weight: 700;
+}
+
+.search-bar button:hover {
+transform: translateY(-50%) scale(1.05);
+box-shadow: 0 5px 20px rgba(196, 30, 58, 0.5);
+}
+
+.header-actions {
+display: flex;
+gap: 2rem;
+align-items: center;
+}
+
+.header-btn {
+background: transparent;
+border: 2px solid var(--iron-red);
+color: var(--text-primary);
+padding: 0.8rem 1.5rem;
+border-radius: 30px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Barlow', sans-serif;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.header-btn:hover {
+background: var(--iron-red);
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(196, 30, 58, 0.5);
+}
+
+.cart-icon {
+position: relative;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+padding: 1rem 1.8rem;
+border-radius: 30px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(196, 30, 58, 0.6);
+}
+
+.cart-count {
+position: absolute;
+top: -8px;
+right: -8px;
+background: var(--iron-gold);
+color: var(--iron-black);
+border-radius: 50%;
+width: 26px;
+height: 26px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.8rem;
+font-weight: 900;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.15); }
+}
+
+.nav-menu {
+background: var(--iron-dark);
+border-bottom: 2px solid var(--iron-gray);
+}
+
+.nav-content {
+max-width: 1400px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: center;
+gap: 0;
+}
+
+.nav-item {
+position: relative;
+}
+
+.nav-link {
+display: block;
+color: var(--text-primary);
+text-decoration: none;
+padding: 1.2rem 2rem;
+font-weight: 600;
+font-size: 1.05rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: all 0.3s ease;
+border-bottom: 3px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+background: rgba(196, 30, 58, 0.1);
+border-bottom-color: var(--iron-red);
+color: var(--iron-orange);
+}
+
+.hero {
+position: relative;
+background: linear-gradient(135deg, rgba(196, 30, 58, 0.2), rgba(255, 69, 0, 0.1));
+padding: 6rem 2rem;
+text-align: center;
+overflow: hidden;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: repeating-linear-gradient(
+45deg,
+transparent,
+transparent 80px,
+rgba(196, 30, 58, 0.03) 80px,
+rgba(196, 30, 58, 0.03) 160px
+);
+animation: slidePattern 30s linear infinite;
+}
+
+@keyframes slidePattern {
+0% { transform: translate(0, 0); }
+100% { transform: translate(80px, 80px); }
+}
+
+.hero-content {
+max-width: 1000px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+}
+
+.hero h1 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 5rem;
+font-weight: 700;
+margin-bottom: 1.5rem;
+background: linear-gradient(135deg, var(--iron-white), var(--iron-gold), var(--iron-red));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+line-height: 1.1;
+text-transform: uppercase;
+letter-spacing: 5px;
+text-shadow: 0 0 50px rgba(196, 30, 58, 0.5);
+}
+
+.hero p {
+font-size: 1.5rem;
+color: var(--text-secondary);
+margin-bottom: 2.5rem;
+font-weight: 400;
+}
+
+.hero-cta {
+display: inline-block;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+padding: 1.5rem 4rem;
+border-radius: 50px;
+font-size: 1.3rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 2px;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 10px 40px rgba(196, 30, 58, 0.4);
+text-decoration: none;
+}
+
+.hero-cta:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 50px rgba(255, 69, 0, 0.6);
+}
+
+.container {
+max-width: 1400px;
+margin: 0 auto;
+padding: 5rem 2rem;
+}
+
+.section-header {
+text-align: center;
+margin-bottom: 4rem;
+}
+
+.section-title {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-transform: uppercase;
+letter-spacing: 3px;
+}
+
+.section-subtitle {
+font-size: 1.2rem;
+color: var(--text-secondary);
+max-width: 700px;
+margin: 0 auto;
+}
+
+.categories-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+margin-bottom: 5rem;
+}
+
+.category-card {
+background: var(--iron-dark);
+border: 3px solid var(--iron-gray);
+border-radius: 15px;
+padding: 3rem 2rem;
+text-align: center;
+cursor: pointer;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+
+.category-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(255, 69, 0, 0.1));
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.category-card:hover::before {
+opacity: 1;
+}
+
+.category-card:hover {
+border-color: var(--iron-red);
+transform: translateY(-10px);
+box-shadow: 0 20px 50px rgba(196, 30, 58, 0.4);
+}
+
+.category-icon {
+font-size: 4rem;
+margin-bottom: 1.5rem;
+filter: grayscale(100%);
+transition: filter 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+filter: grayscale(0%);
+}
+
+.category-name {
+font-family: 'Oswald', sans-serif;
+font-size: 1.8rem;
+font-weight: 700;
+color: var(--text-primary);
+margin-bottom: 0.5rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.category-count {
+color: var(--text-secondary);
+font-size: 1rem;
+}
+
+.products-section {
+background: var(--iron-dark);
+padding: 5rem 0;
+}
+
+.filters {
+display: flex;
+gap: 1rem;
+margin-bottom: 3rem;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.filter-btn {
+background: var(--iron-black);
+color: var(--text-secondary);
+border: 2px solid var(--iron-gray);
+padding: 0.8rem 2rem;
+border-radius: 30px;
+font-size: 1rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Barlow', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+border-color: var(--iron-red);
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(196, 30, 58, 0.4);
+}
+
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+gap: 2.5rem;
+}
+
+.product-card {
+background: var(--iron-black);
+border: 3px solid var(--iron-gray);
+border-radius: 20px;
+overflow: hidden;
+transition: all 0.4s ease;
+cursor: pointer;
+position: relative;
+}
+
+.product-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(255, 69, 0, 0.1));
+opacity: 0;
+transition: opacity 0.3s ease;
+pointer-events: none;
+z-index: 1;
+}
+
+.product-card:hover::before {
+opacity: 1;
+}
+
+.product-card:hover {
+border-color: var(--iron-red);
+transform: translateY(-10px);
+box-shadow: 0 20px 60px rgba(196, 30, 58, 0.5);
+}
+
+.product-image {
+width: 100%;
+height: 280px;
+background: var(--iron-dark);
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+}
+
+.product-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+transform: scale(1.1);
+}
+
+.product-badge {
+position: absolute;
+top: 1rem;
+left: 1rem;
+background: var(--iron-red);
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+z-index: 10;
+}
+
+.product-badge.new {
+background: var(--iron-gold);
+color: var(--iron-black);
+}
+
+.product-badge.sale {
+background: var(--iron-orange);
+animation: pulse 2s infinite;
+}
+
+.product-info {
+padding: 2rem;
+position: relative;
+z-index: 2;
+}
+
+.product-brand {
+color: var(--iron-orange);
+font-size: 0.9rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 0.5rem;
+}
+
+.product-name {
+font-family: 'Oswald', sans-serif;
+font-size: 1.4rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: var(--text-primary);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.product-rating {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+margin-bottom: 1rem;
+}
+
+.stars {
+color: var(--iron-gold);
+}
+
+.rating-count {
+color: var(--text-secondary);
+font-size: 0.9rem;
+}
+
+.product-price-section {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 1.5rem;
+}
+
+.product-price {
+display: flex;
+flex-direction: column;
+}
+
+.price-current {
+font-family: 'Oswald', sans-serif;
+font-size: 2rem;
+font-weight: 700;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.price-old {
+font-size: 1.1rem;
+color: var(--text-secondary);
+text-decoration: line-through;
+}
+
+.add-to-cart {
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+border: none;
+padding: 1rem 1.5rem;
+border-radius: 30px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.add-to-cart:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 20px rgba(196, 30, 58, 0.5);
+}
+
+.features-section {
+background: linear-gradient(135deg, rgba(196, 30, 58, 0.1), rgba(255, 69, 0, 0.05));
+padding: 5rem 0;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 3rem;
+}
+
+.feature-card {
+text-align: center;
+padding: 2rem;
+}
+
+.feature-icon {
+font-size: 4rem;
+margin-bottom: 1.5rem;
+}
+
+.feature-title {
+font-family: 'Oswald', sans-serif;
+font-size: 1.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.feature-description {
+color: var(--text-secondary);
+font-size: 1rem;
+line-height: 1.8;
+}
+
+.testimonials-section {
+background: var(--iron-black);
+padding: 5rem 0;
+}
+
+.testimonials-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2.5rem;
+}
+
+.testimonial-card {
+background: var(--iron-dark);
+border: 2px solid var(--iron-gray);
+border-radius: 15px;
+padding: 2.5rem;
+position: relative;
+}
+
+.testimonial-card::before {
+content: '"';
+position: absolute;
+top: 1rem;
+left: 1.5rem;
+font-size: 6rem;
+color: var(--iron-red);
+opacity: 0.2;
+font-family: Georgia, serif;
+}
+
+.testimonial-text {
+color: var(--text-secondary);
+font-size: 1.1rem;
+line-height: 1.8;
+margin-bottom: 2rem;
+position: relative;
+z-index: 1;
+}
+
+.testimonial-author {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.author-avatar {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5rem;
+font-weight: 700;
+}
+
+.author-info {
+flex: 1;
+}
+
+.author-name {
+font-weight: 700;
+font-size: 1.1rem;
+color: var(--text-primary);
+}
+
+.author-role {
+color: var(--text-secondary);
+font-size: 0.9rem;
+}
+
+.newsletter-section {
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+padding: 5rem 2rem;
+text-align: center;
+}
+
+.newsletter-content {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.newsletter-content h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3.5rem;
+margin-bottom: 1rem;
+text-transform: uppercase;
+letter-spacing: 3px;
+}
+
+.newsletter-content p {
+font-size: 1.2rem;
+margin-bottom: 2.5rem;
+opacity: 0.9;
+}
+
+.newsletter-form {
+display: flex;
+gap: 1rem;
+max-width: 600px;
+margin: 0 auto;
+}
+
+.newsletter-form input {
+flex: 1;
+background: white;
+border: none;
+color: var(--iron-black);
+padding: 1.2rem 1.5rem;
+border-radius: 50px;
+font-size: 1rem;
+font-family: 'Barlow', sans-serif;
+}
+
+.newsletter-form input::placeholder {
+color: #888;
+}
+
+.newsletter-form button {
+background: var(--iron-black);
+color: white;
+border: none;
+padding: 1.2rem 3rem;
+border-radius: 50px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.newsletter-form button:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+background: var(--iron-dark);
+border-top: 3px solid var(--iron-red);
+padding: 4rem 2rem 2rem 2rem;
+}
+
+.footer-content {
+max-width: 1400px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 3rem;
+margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+font-family: 'Oswald', sans-serif;
+font-size: 1.5rem;
+margin-bottom: 1.5rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: var(--iron-orange);
+}
+
+.footer-section ul {
+list-style: none;
+}
+
+.footer-section ul li {
+margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+color: var(--text-secondary);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+color: var(--iron-red);
+}
+
+.social-icons {
+display: flex;
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+.social-icon {
+width: 45px;
+height: 45px;
+background: var(--iron-black);
+border: 2px solid var(--iron-gray);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+background: var(--iron-red);
+border-color: var(--iron-red);
+transform: translateY(-3px);
+}
+
+.footer-bottom {
+max-width: 1400px;
+margin: 0 auto;
+padding-top: 2rem;
+border-top: 2px solid var(--iron-gray);
+text-align: center;
+color: var(--text-secondary);
+}
+
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 5000;
+align-items: center;
+justify-content: center;
+animation: fadeIn 0.3s ease;
+overflow-y: auto;
+padding: 2rem;
+}
+
+.modal.open {
+display: flex;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+.modal-content {
+background: var(--iron-dark);
+border: 3px solid var(--iron-red);
+border-radius: 20px;
+padding: 3rem;
+max-width: 500px;
+width: 100%;
+position: relative;
+animation: slideUp 0.4s ease;
+box-shadow: 0 20px 60px rgba(196, 30, 58, 0.6);
+}
+
+@keyframes slideUp {
+from { transform: translateY(50px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 2rem;
+padding-bottom: 1rem;
+border-bottom: 2px solid var(--iron-gray);
+}
+
+.modal-header h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 2.5rem;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.close-modal {
+background: none;
+border: none;
+color: var(--text-primary);
+font-size: 2.5rem;
+cursor: pointer;
+transition: all 0.3s ease;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+}
+
+.close-modal:hover {
+background: var(--iron-red);
+transform: rotate(90deg);
+}
+
+.form-group {
+margin-bottom: 1.5rem;
+}
+
+.form-group label {
+display: block;
+color: var(--iron-orange);
+font-weight: 600;
+margin-bottom: 0.5rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+background: var(--iron-black);
+border: 2px solid var(--iron-gray);
+color: var(--text-primary);
+padding: 1rem;
+border-radius: 10px;
+font-size: 1rem;
+font-family: 'Barlow', sans-serif;
+transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: var(--iron-red);
+box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+}
+
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.submit-btn {
+width: 100%;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+border: none;
+padding: 1.2rem;
+border-radius: 50px;
+font-size: 1.2rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 2px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Bebas Neue', sans-serif;
+}
+
+.submit-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 30px rgba(196, 30, 58, 0.6);
+}
+
+.form-link {
+text-align: center;
+margin-top: 1.5rem;
+color: var(--text-secondary);
+}
+
+.form-link a {
+color: var(--iron-orange);
+text-decoration: none;
+font-weight: 700;
+}
+
+.form-link a:hover {
+text-decoration: underline;
+}
+
+.cart-sidebar {
+position: fixed;
+right: -500px;
+top: 0;
+width: 500px;
+height: 100vh;
+background: var(--iron-dark);
+box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
+transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+z-index: 6000;
+overflow-y: auto;
+border-left: 3px solid var(--iron-red);
+}
+
+.cart-sidebar.open {
+right: 0;
+}
+
+.cart-header {
+padding: 2rem;
+border-bottom: 2px solid var(--iron-gray);
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: var(--iron-black);
+position: sticky;
+top: 0;
+z-index: 10;
+}
+
+.cart-header h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 2rem;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.cart-items {
+padding: 2rem;
+}
+
+.cart-item {
+display: flex;
+gap: 1.5rem;
+padding: 1.5rem;
+background: var(--iron-black);
+border-radius: 15px;
+margin-bottom: 1.5rem;
+border: 2px solid var(--iron-gray);
+transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+border-color: var(--iron-red);
+}
+
+.cart-item-image {
+width: 100px;
+height: 100px;
+background: var(--iron-gray);
+border-radius: 10px;
+overflow: hidden;
+}
+
+.cart-item-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.cart-item-info {
+flex: 1;
+}
+
+.cart-item-brand {
+color: var(--iron-orange);
+font-size: 0.85rem;
+font-weight: 600;
+text-transform: uppercase;
+}
+
+.cart-item-name {
+font-weight: 700;
+font-size: 1.1rem;
+margin: 0.3rem 0;
+}
+
+.cart-item-price {
+color: var(--iron-red);
+font-weight: 700;
+font-size: 1.3rem;
+font-family: 'Oswald', sans-serif;
+}
+
+.cart-item-controls {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin-top: 1rem;
+}
+
+.quantity-btn {
+background: var(--iron-red);
+color: white;
+border: none;
+width: 35px;
+height: 35px;
+border-radius: 50%;
+font-size: 1.3rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.quantity-btn:hover {
+background: var(--iron-orange);
+transform: scale(1.1);
+}
+
+.quantity {
+font-weight: 700;
+font-size: 1.2rem;
+min-width: 35px;
+text-align: center;
+}
+
+.remove-btn {
+background: transparent;
+color: var(--iron-orange);
+border: 2px solid var(--iron-orange);
+padding: 0.4rem 1rem;
+border-radius: 20px;
+font-size: 0.85rem;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+margin-left: auto;
+}
+
+.remove-btn:hover {
+background: var(--iron-orange);
+color: white;
+}
+
+.cart-empty {
+text-align: center;
+padding: 5rem 2rem;
+color: var(--text-secondary);
+}
+
+.cart-empty-icon {
+font-size: 6rem;
+margin-bottom: 1.5rem;
+opacity: 0.3;
+}
+
+.cart-footer {
+position: sticky;
+bottom: 0;
+background: var(--iron-black);
+padding: 2rem;
+border-top: 2px solid var(--iron-gray);
+}
+
+.cart-total {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1.5rem;
+font-size: 1.5rem;
+font-weight: 700;
+}
+
+.cart-total-label {
+color: var(--text-secondary);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.cart-total-amount {
+font-family: 'Oswald', sans-serif;
+font-size: 2.2rem;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.checkout-btn {
+width: 100%;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+border: none;
+padding: 1.3rem;
+border-radius: 50px;
+font-size: 1.3rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 2px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Bebas Neue', sans-serif;
+}
+
+.checkout-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 15px 40px rgba(196, 30, 58, 0.6);
+}
+
+.page-content {
+display: none;
+}
+
+.page-content.active {
+display: block;
+}
+
+.info-section {
+background: var(--iron-dark);
+padding: 5rem 0;
+}
+
+.info-content {
+max-width: 900px;
+margin: 0 auto;
+}
+
+.info-content h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3rem;
+margin-bottom: 2rem;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.info-content h3 {
+font-family: 'Oswald', sans-serif;
+font-size: 2rem;
+margin: 2.5rem 0 1.5rem 0;
+color: var(--iron-orange);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.info-content p {
+color: var(--text-secondary);
+font-size: 1.1rem;
+line-height: 1.9;
+margin-bottom: 1.5rem;
+}
+
+.info-content ul {
+color: var(--text-secondary);
+font-size: 1.1rem;
+line-height: 2;
+margin-left: 2rem;
+margin-bottom: 1.5rem;
+}
+
+.faq-item {
+background: var(--iron-black);
+border: 2px solid var(--iron-gray);
+border-radius: 15px;
+margin-bottom: 1.5rem;
+overflow: hidden;
+}
+
+.faq-question {
+padding: 1.5rem 2rem;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+background: rgba(196, 30, 58, 0.1);
+}
+
+.faq-question h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 1.3rem;
+color: var(--text-primary);
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.faq-icon {
+font-size: 1.5rem;
+color: var(--iron-red);
+transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+transform: rotate(180deg);
+}
+
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+max-height: 500px;
+}
+
+.faq-answer-content {
+padding: 0 2rem 2rem 2rem;
+color: var(--text-secondary);
+font-size: 1.05rem;
+line-height: 1.8;
+}
+
+.contact-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 3rem;
+margin-top: 3rem;
+}
+
+.contact-info {
+background: var(--iron-black);
+border: 2px solid var(--iron-gray);
+border-radius: 15px;
+padding: 2.5rem;
+}
+
+.contact-item {
+display: flex;
+align-items: flex-start;
+gap: 1.5rem;
+margin-bottom: 2rem;
+}
+
+.contact-icon {
+font-size: 2rem;
+color: var(--iron-red);
+}
+
+.contact-details h4 {
+font-family: 'Oswald', sans-serif;
+font-size: 1.2rem;
+margin-bottom: 0.5rem;
+text-transform: uppercase;
+}
+
+.contact-details p {
+color: var(--text-secondary);
+font-size: 1rem;
+margin: 0;
+}
+
+.success-message {
+background: var(--iron-black);
+border: 3px solid var(--iron-gold);
+border-radius: 20px;
+padding: 3rem;
+text-align: center;
+animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+0% { transform: scale(0.3); opacity: 0; }
+50% { transform: scale(1.05); }
+70% { transform: scale(0.9); }
+100% { transform: scale(1); opacity: 1; }
+}
+
+.success-icon {
+font-size: 6rem;
+color: var(--iron-gold);
+margin-bottom: 1.5rem;
+animation: checkmark 0.8s ease;
+}
+
+@keyframes checkmark {
+0% { transform: scale(0) rotate(-45deg); }
+100% { transform: scale(1) rotate(0deg); }
+}
+
+.success-message h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3rem;
+color: var(--iron-gold);
+margin-bottom: 1rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.order-number {
+background: var(--iron-dark);
+border: 2px solid var(--iron-red);
+border-radius: 10px;
+padding: 1.5rem;
+margin: 2rem 0;
+font-family: 'Oswald', sans-serif;
+font-size: 1.8rem;
+color: var(--iron-red);
+}
+
+@media (max-width: 768px) {
+.hero h1 {
+font-size: 3rem;
+}
+.top-bar-content {
+flex-direction: column;
+text-align: center;
+}
+.header-content {
+flex-direction: column;
+}
+.nav-content {
+flex-direction: column;
+gap: 0;
+}
+.nav-link {
+text-align: center;
+}
+.cart-sidebar {
+width: 100%;
+right: -100%;
+}
+.contact-grid {
+grid-template-columns: 1fr;
+}
+.search-bar {
+max-width: 100%;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+<div class="top-bar-content">
+<div class="top-bar-left">
+<span>📞 Soporte: <strong>+34 900 123 456</strong></span>
+<span>📧 Email: <strong>info@ironcult.com</strong></span>
+</div>
+<div class="top-bar-right">
+<a href="#" onclick="showPage('about')">Sobre Nosotros</a>
+<a href="#" onclick="showPage('faq')">Preguntas Frecuentes</a>
+<a href="#" onclick="showPage('contact')">Contacto</a>
+</div>
+</div>
+</div>
+
+<header class="header">
+<div class="header-content">
+<div class="logo" onclick="showPage('home')">IRON CULT</div>
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Buscar productos, suplementos, equipamiento..." onkeyup="searchProducts()">
+<button>🔍</button>
+</div>
+<div class="header-actions">
+<button class="header-btn" onclick="openModal('loginModal')">👤 Iniciar Sesión</button>
+<div class="cart-icon" onclick="toggleCart()">
+🛒 Carrito
+<span class="cart-count" id="cartCount">0</span>
+</div>
+</div>
+</div>
+</header>
+
+<nav class="nav-menu">
+<div class="nav-content">
+<div class="nav-item">
+<a href="#" class="nav-link active" onclick="showPage('home')">Inicio</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="filterByCategory('proteinas')">Proteínas</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="filterByCategory('creatina')">Creatina</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="filterByCategory('pre-workout')">Pre-Workout</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="filterByCategory('equipamiento')">Equipamiento</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="filterByCategory('ropa')">Ropa Fitness</a>
+</div>
+<div class="nav-item">
+<a href="#" class="nav-link" onclick="showPage('ofertas')">🔥 Ofertas</a>
+</div>
+</div>
+</nav>
+
+<div id="homePage" class="page-content active">
+<section class="hero">
+<div class="hero-content">
+<h1>No Pain, No Gain</h1>
+<p>Suplementos y equipamiento de élite para atletas que no conocen límites</p>
+<a href="#productos" class="hero-cta">Explorar Productos 💪</a>
+</div>
+</section>
+
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Categorías</h2>
+<p class="section-subtitle">Encuentra todo lo que necesitas para alcanzar tus objetivos</p>
+</div>
+
+<div class="categories-grid">
+<div class="category-card" onclick="filterByCategory('proteinas')">
+<div class="category-icon">🥤</div>
+<h3 class="category-name">Proteínas</h3>
+<p class="category-count">45 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('creatina')">
+<div class="category-icon">💊</div>
+<h3 class="category-name">Creatina</h3>
+<p class="category-count">28 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('pre-workout')">
+<div class="category-icon">⚡</div>
+<h3 class="category-name">Pre-Workout</h3>
+<p class="category-count">35 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('aminoacidos')">
+<div class="category-icon">🧪</div>
+<h3 class="category-name">Aminoácidos</h3>
+<p class="category-count">32 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('vitaminas')">
+<div class="category-icon">💉</div>
+<h3 class="category-name">Vitaminas</h3>
+<p class="category-count">40 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('equipamiento')">
+<div class="category-icon">🏋️</div>
+<h3 class="category-name">Equipamiento</h3>
+<p class="category-count">52 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('ropa')">
+<div class="category-icon">👕</div>
+<h3 class="category-name">Ropa Fitness</h3>
+<p class="category-count">65 productos</p>
+</div>
+<div class="category-card" onclick="filterByCategory('accesorios')">
+<div class="category-icon">🎒</div>
+<h3 class="category-name">Accesorios</h3>
+<p class="category-count">38 productos</p>
+</div>
+</div>
+</div>
+
+<section class="products-section" id="productos">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Productos Destacados</h2>
+<p class="section-subtitle">Los mejores suplementos y equipamiento del mercado</p>
+</div>
+
+<div class="filters" id="filters">
+<button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+<button class="filter-btn" onclick="filterProducts('proteinas')">Proteínas</button>
+<button class="filter-btn" onclick="filterProducts('creatina')">Creatina</button>
+<button class="filter-btn" onclick="filterProducts('pre-workout')">Pre-Workout</button>
+<button class="filter-btn" onclick="filterProducts('aminoacidos')">Aminoácidos</button>
+<button class="filter-btn" onclick="filterProducts('vitaminas')">Vitaminas</button>
+<button class="filter-btn" onclick="filterProducts('equipamiento')">Equipamiento</button>
+<button class="filter-btn" onclick="filterProducts('ropa')">Ropa</button>
+</div>
+
+<div class="products-grid" id="productsGrid"></div>
+</div>
+</section>
+
+<section class="features-section">
+<div class="container">
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">🚚</div>
+<h3 class="feature-title">Envío Express</h3>
+<p class="feature-description">Envío gratis en pedidos superiores a 50€. Recibe tus productos en 24-48h.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">✅</div>
+<h3 class="feature-title">100% Garantizado</h3>
+<p class="feature-description">Todos nuestros productos están certificados y garantizados por calidad.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">💰</div>
+<h3 class="feature-title">Mejor Precio</h3>
+<p class="feature-description">Los mejores precios del mercado. Si encuentras más barato, igualamos el precio.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎁</div>
+<h3 class="feature-title">Muestras Gratis</h3>
+<p class="feature-description">Muestras gratuitas en cada pedido para que pruebes nuevos productos.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="testimonials-section">
+<div class="container">
+<div class="section-header">
+<h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+<p class="section-subtitle">Miles de atletas confían en Iron Cult</p>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card">
+<p class="testimonial-text">"La mejor tienda de suplementos que he probado. La proteína Whey Isolate es increíble, se mezcla perfecto y el sabor es brutal. He ganado 5kg de músculo en 3 meses."</p>
+<div class="testimonial-author">
+<div class="author-avatar">MR</div>
+<div class="author-info">
+<div class="author-name">Miguel Rodríguez</div>
+<div class="author-role">Culturista Amateur</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"El pre-workout Nitro Blast es una locura. La energía que te da es increíble, entreno el doble de intenso y los pump son brutales. 100% recomendado."</p>
+<div class="testimonial-author">
+<div class="author-avatar">LG</div>
+<div class="author-info">
+<div class="author-name">Laura García</div>
+<div class="author-role">Entrenadora Personal</div>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-text">"Llevo años comprando aquí. Calidad top, precios increíbles y el servicio al cliente es excelente. Los envíos siempre llegan rápido y bien embalados."</p>
+<div class="testimonial-author">
+<div class="author-avatar">CM</div>
+<div class="author-info">
+<div class="author-name">Carlos Martínez</div>
+<div class="author-role">Atleta Competitivo</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="newsletter-section">
+<div class="newsletter-content">
+<h2>Únete al Culto</h2>
+<p>Suscríbete y recibe un 15% de descuento en tu primera compra + ofertas exclusivas</p>
+<form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
+<input type="email" placeholder="Tu email" required>
+<button type="submit">Suscribirse</button>
+</form>
+</div>
+</section>
+</div>
+
+<div id="aboutPage" class="page-content">
+<section class="info-section">
+<div class="container">
+<div class="info-content">
+<h2>Sobre Iron Cult</h2>
+<p>Iron Cult nació en 2015 con una misión clara: proporcionar a los atletas más exigentes los mejores suplementos y equipamiento del mercado. No vendemos promesas vacías, vendemos resultados.</p>
+
+<h3>Nuestra Historia</h3>
+<p>Fundada por dos culturistas profesionales frustrados con la calidad de los suplementos disponibles, Iron Cult comenzó en un pequeño gimnasio de Barcelona. Lo que empezó como una pasión por ayudar a compañeros de entreno se convirtió en la tienda de suplementación deportiva más respetada de España.</p>
+
+<h3>Nuestros Valores</h3>
+<ul>
+<li><strong>Calidad Absoluta:</strong> Solo trabajamos con marcas que pasan nuestros rigurosos controles de calidad.</li>
+<li><strong>Transparencia Total:</strong> Cada producto muestra su composición completa. Sin sustancias ocultas.</li>
+<li><strong>Resultados Reales:</strong> No vendemos milagros. Vendemos ciencia respaldada por estudios.</li>
+<li><strong>Comunidad:</strong> Más que clientes, somos una familia de atletas apasionados.</li>
+<li><strong>Innovación:</strong> Constantemente buscamos los mejores productos y últimas tendencias.</li>
+</ul>
+
+<h3>Certificaciones</h3>
+<p>Todos nuestros productos cuentan con certificación ISO 9001, están registrados en AECOSAN (Agencia Española de Consumo, Seguridad Alimentaria y Nutrición) y cumplen estrictamente con la normativa europea vigente. Trabajamos exclusivamente con laboratorios certificados GMP (Good Manufacturing Practices).</p>
+
+<h3>Compromiso con el Deporte</h3>
+<p>Patrocinamos a más de 50 atletas de alto rendimiento en disciplinas como culturismo, powerlifting, CrossFit y atletismo. Creemos en apoyar el talento y la dedicación.</p>
+</div>
+</div>
+</section>
+</div>
+
+<div id="faqPage" class="page-content">
+<section class="info-section">
+<div class="container">
+<div class="info-content">
+<h2>Preguntas Frecuentes</h2>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Cuánto tarda el envío?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+Los envíos se procesan en 24h laborables. El tiempo de entrega es de 24-48h para península y de 3-5 días para Baleares, Canarias, Ceuta y Melilla. Ofrecemos envío express en 24h por un suplemento de 5,95€.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Los productos son originales?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+100% originales y garantizados. Trabajamos directamente con fabricantes y distribuidores oficiales. Cada producto incluye código de autenticidad verificable en la web del fabricante. Si recibes algún producto que no sea auténtico, te devolvemos el doble de tu dinero.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Cómo tomar proteína whey?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+La dosis recomendada es 1 scoop (30g) mezclado con 250-300ml de agua o leche. Se puede tomar post-entreno para maximizar la recuperación muscular, o entre comidas para aumentar tu ingesta proteica diaria. No superar 3 tomas al día.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿La creatina tiene efectos secundarios?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+La creatina monohidrato es uno de los suplementos más estudiados y seguros. Los estudios científicos demuestran que es completamente segura en dosis de 3-5g diarios. Puede causar retención de agua (lo cual es normal y deseado). Asegúrate de mantener una buena hidratación.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Puedo devolver un producto?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+Sí, tienes 14 días naturales desde la recepción del pedido para devolverlo. El producto debe estar sin abrir y en perfectas condiciones. Los gastos de devolución corren por cuenta del cliente excepto si hay defecto de fábrica. El reembolso se realiza en 5-7 días laborables.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Hacéis envíos internacionales?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+Actualmente realizamos envíos a toda España (península, Baleares, Canarias, Ceuta y Melilla) y a Portugal. Estamos trabajando para expandir nuestros envíos al resto de Europa en 2024.
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Ofrecéis asesoramiento nutricional?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+Sí, nuestro equipo de nutricionistas deportivos certificados está disponible por email y chat para resolver dudas sobre suplementación. Para planes nutricionales personalizados, ofrecemos consultas privadas online (servicio de pago).
+</div>
+</div>
+</div>
+
+<div class="faq-item" onclick="toggleFAQ(this)">
+<div class="faq-question">
+<h4>¿Los productos están testados anti-doping?</h4>
+<span class="faq-icon">▼</span>
+</div>
+<div class="faq-answer">
+<div class="faq-answer-content">
+Los productos marcados con el sello "Informed Sport" están certificados libres de sustancias prohibidas por WADA. Si compites profesionalmente, busca este sello en la descripción del producto.
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+</div>
+
+<div id="contactPage" class="page-content">
+<section class="info-section">
+<div class="container">
+<div class="info-content">
+<h2>Contacto</h2>
+<p>¿Tienes alguna pregunta? Estamos aquí para ayudarte. Nuestro equipo responde en menos de 24h.</p>
+
+<div class="contact-grid">
+<div class="contact-info">
+<div class="contact-item">
+<div class="contact-icon">📍</div>
+<div class="contact-details">
+<h4>Dirección</h4>
+<p>Calle del Hierro, 45<br>08015 Barcelona, España</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📞</div>
+<div class="contact-details">
+<h4>Teléfono</h4>
+<p>+34 900 123 456<br>Lun-Vie: 9:00-18:00</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">📧</div>
+<div class="contact-details">
+<h4>Email</h4>
+<p>info@ironcult.com<br>soporte@ironcult.com</p>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon">💬</div>
+<div class="contact-details">
+<h4>Redes Sociales</h4>
+<p>@ironcult_official<br>Facebook, Instagram, TikTok</p>
+</div>
+</div>
+</div>
+
+<div>
+<form class="contact-form" onsubmit="event.preventDefault(); sendContact();">
+<div class="form-group">
+<label>Nombre Completo</label>
+<input type="text" required placeholder="Tu nombre">
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" required placeholder="tu@email.com">
+</div>
+<div class="form-group">
+<label>Asunto</label>
+<select required>
+<option value="">Selecciona un asunto</option>
+<option value="consulta">Consulta General</option>
+<option value="pedido">Estado de Pedido</option>
+<option value="producto">Pregunta sobre Producto</option>
+<option value="devolucion">Devolución/Cambio</option>
+<option value="sugerencia">Sugerencia</option>
+<option value="otro">Otro</option>
+</select>
+</div>
+<div class="form-group">
+<label>Mensaje</label>
+<textarea required placeholder="Escribe tu mensaje aquí..."></textarea>
+</div>
+<button type="submit" class="submit-btn">Enviar Mensaje</button>
+</form>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+</div>
+
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Iron Cult</h3>
+<p style="color: var(--text-secondary); margin-bottom: 1rem;">Tu tienda de confianza para suplementación deportiva y equipamiento fitness de élite.</p>
+<div class="social-icons">
+<div class="social-icon">📘</div>
+<div class="social-icon">📷</div>
+<div class="social-icon">🐦</div>
+<div class="social-icon">🎵</div>
+</div>
+</div>
+<div class="footer-section">
+<h3>Enlaces Rápidos</h3>
+<ul>
+<li><a href="#" onclick="showPage('about')">Sobre Nosotros</a></li>
+<li><a href="#" onclick="showPage('faq')">Preguntas Frecuentes</a></li>
+<li><a href="#" onclick="showPage('contact')">Contacto</a></li>
+<li><a href="#">Blog de Fitness</a></li>
+<li><a href="#">Trabaja con Nosotros</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Información</h3>
+<ul>
+<li><a href="#">Política de Envío</a></li>
+<li><a href="#">Política de Devoluciones</a></li>
+<li><a href="#">Términos y Condiciones</a></li>
+<li><a href="#">Política de Privacidad</a></li>
+<li><a href="#">Aviso Legal</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Métodos de Pago</h3>
+<p style="color: var(--text-secondary); margin-bottom: 1rem;">Aceptamos todos los métodos de pago seguros:</p>
+<p style="font-size: 1.5rem;">💳 💶 📱 🏦</p>
+<p style="color: var(--text-secondary); margin-top: 1rem; font-size: 0.9rem;">Compra 100% segura con certificado SSL</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Iron Cult. Todos los derechos reservados. | IVA incluido en todos los precios</p>
+<p style="margin-top: 0.5rem; font-size: 0.9rem;">Desarrollado con 💪 para atletas de élite</p>
+</div>
+</footer>
+
+<div class="modal" id="loginModal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Iniciar Sesión</h2>
+<button class="close-modal" onclick="closeModal('loginModal')">×</button>
+</div>
+<form onsubmit="event.preventDefault(); handleLogin();">
+<div class="form-group">
+<label>Email</label>
+<input type="email" required placeholder="tu@email.com">
+</div>
+<div class="form-group">
+<label>Contraseña</label>
+<input type="password" required placeholder="••••••••">
+</div>
+<button type="submit" class="submit-btn">Entrar al Culto</button>
+<div class="form-link">
+¿No tienes cuenta? <a href="#" onclick="closeModal('loginModal'); openModal('registerModal');">Regístrate aquí</a>
+</div>
+<div class="form-link">
+<a href="#">¿Olvidaste tu contraseña?</a>
+</div>
+</form>
+</div>
+</div>
+
+<div class="modal" id="registerModal">
+<div class="modal-content">
+<div class="modal-header">
+<h2>Registro</h2>
+<button class="close-modal" onclick="closeModal('registerModal')">×</button>
+</div>
+<form onsubmit="event.preventDefault(); handleRegister();">
+<div class="form-group">
+<label>Nombre Completo</label>
+<input type="text" required placeholder="Juan Pérez">
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" required placeholder="tu@email.com">
+</div>
+<div class="form-group">
+<label>Contraseña</label>
+<input type="password" required placeholder="Mínimo 8 caracteres">
+</div>
+<div class="form-group">
+<label>Confirmar Contraseña</label>
+<input type="password" required placeholder="Repite tu contraseña">
+</div>
+<button type="submit" class="submit-btn">Unirse al Culto</button>
+<div class="form-link">
+¿Ya tienes cuenta? <a href="#" onclick="closeModal('registerModal'); openModal('loginModal');">Inicia sesión</a>
+</div>
+</form>
+</div>
+</div>
+
+<div class="modal" id="checkoutModal">
+<div class="modal-content" style="max-width: 700px;">
+<div class="modal-header">
+<h2>Checkout</h2>
+<button class="close-modal" onclick="closeModal('checkoutModal')">×</button>
+</div>
+<form onsubmit="event.preventDefault(); processOrder();">
+<h3 style="color: var(--iron-orange); margin-bottom: 1.5rem; font-family: 'Oswald', sans-serif; text-transform: uppercase;">Información de Envío</h3>
+<div class="form-group">
+<label>Nombre Completo</label>
+<input type="text" required placeholder="Juan Pérez">
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" required placeholder="tu@email.com">
+</div>
+<div class="form-group">
+<label>Teléfono</label>
+<input type="tel" required placeholder="+34 600 000 000">
+</div>
+<div class="form-group">
+<label>Dirección</label>
+<input type="text" required placeholder="Calle Principal, 123">
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+<div class="form-group">
+<label>Ciudad</label>
+<input type="text" required placeholder="Madrid">
+</div>
+<div class="form-group">
+<label>Código Postal</label>
+<input type="text" required placeholder="28001">
+</div>
+</div>
+
+<h3 style="color: var(--iron-orange); margin: 2rem 0 1.5rem 0; font-family: 'Oswald', sans-serif; text-transform: uppercase;">Método de Pago</h3>
+<div class="form-group">
+<label>Número de Tarjeta</label>
+<input type="text" required placeholder="1234 5678 9012 3456" maxlength="19">
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+<div class="form-group">
+<label>Fecha Expiración</label>
+<input type="text" required placeholder="MM/AA" maxlength="5">
+</div>
+<div class="form-group">
+<label>CVV</label>
+<input type="text" required placeholder="123" maxlength="3">
+</div>
+</div>
+
+<div style="background: var(--iron-black); border: 2px solid var(--iron-gray); border-radius: 15px; padding: 1.5rem; margin: 2rem 0;">
+<h3 style="color: var(--iron-orange); margin-bottom: 1rem; font-family: 'Oswald', sans-serif;">Resumen del Pedido</h3>
+<div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--iron-gray);">
+<span>Subtotal</span>
+<span id="checkoutSubtotal">0€</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--iron-gray);">
+<span>Envío</span>
+<span>GRATIS</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--iron-gray);">
+<span>IVA (21%)</span>
+<span id="checkoutTax">0€</span>
+</div>
+<div style="display: flex; justify-content: space-between; padding-top: 1rem; font-size: 1.5rem; font-weight: 700;">
+<span>TOTAL</span>
+<span id="checkoutTotal" style="color: var(--iron-red);">0€</span>
+</div>
+</div>
+
+<button type="submit" class="submit-btn">Confirmar Pedido</button>
+</form>
+</div>
+</div>
+
+<div class="modal" id="successModal">
+<div class="modal-content">
+<div class="success-message">
+<div class="success-icon">✓</div>
+<h2>¡Pedido Confirmado!</h2>
+<p style="color: var(--text-secondary); margin: 1rem 0;">Tu pedido ha sido procesado con éxito</p>
+<div class="order-number">
+PEDIDO Nº: <span id="orderNumber"></span>
+</div>
+<p style="color: var(--text-secondary); margin: 1rem 0;">
+Recibirás un email de confirmación con los detalles de tu pedido y el código de seguimiento en las próximas horas.
+</p>
+<p style="color: var(--text-secondary); font-size: 0.95rem;">
+Tiempo estimado de entrega: <strong style="color: var(--iron-orange);">24-48h</strong>
+</p>
+<button class="submit-btn" style="margin-top: 2rem;" onclick="closeSuccessModal()">Volver a la Tienda</button>
+</div>
+</div>
+</div>
+
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+<h2>🛒 Tu Carrito</h2>
+<button class="close-modal" onclick="toggleCart()">×</button>
+</div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-footer">
+<div class="cart-total">
+<span class="cart-total-label">Total:</span>
+<span class="cart-total-amount" id="cartTotal">0€</span>
+</div>
+<button class="checkout-btn" onclick="openCheckout()">Proceder al Pago →</button>
+</div>
+</div>
+
+<script>
+const products = [
+{id: 1, name: 'Whey Protein Isolate', brand: 'Iron Labs', category: 'proteinas', price: 49.99, oldPrice: 59.99, rating: 5, reviews: 2847, image: 'whey-isolate.jpg', badge: 'hot'},
+{id: 2, name: 'Creatine Monohydrate', brand: 'Pure Strength', category: 'creatina', price: 24.99, oldPrice: null, rating: 5, reviews: 3421, image: 'creatine-mono.jpg', badge: 'hot'},
+{id: 3, name: 'Nitro Blast Pre-Workout', brand: 'Explosive', category: 'pre-workout', price: 39.99, oldPrice: 44.99, rating: 5, reviews: 1987, image: 'pre-workout.jpg', badge: 'sale'},
+{id: 4, name: 'BCAA 2:1:1', brand: 'Amino Force', category: 'aminoacidos', price: 29.99, oldPrice: null, rating: 5, reviews: 1654, image: 'bcaa.jpg', badge: null},
+{id: 5, name: 'Multivitamin Max', brand: 'VitaPro', category: 'vitaminas', price: 19.99, oldPrice: null, rating: 5, reviews: 2134, image: 'multivitamin.jpg', badge: null},
+{id: 6, name: 'Mancuernas Ajustables 24kg', brand: 'Iron Gear', category: 'equipamiento', price: 129.99, oldPrice: 149.99, rating: 5, reviews: 987, image: 'dumbbells.jpg', badge: 'sale'},
+{id: 7, name: 'Camiseta Compression Pro', brand: 'Iron Wear', category: 'ropa', price: 34.99, oldPrice: null, rating: 5, reviews: 1456, image: 'compression-shirt.jpg', badge: null},
+{id: 8, name: 'Shaker Premium 700ml', brand: 'Iron Cult', category: 'accesorios', price: 9.99, oldPrice: null, rating: 5, reviews: 3876, image: 'shaker.jpg', badge: 'new'},
+{id: 9, name: 'Mass Gainer Extreme', brand: 'Bulk Up', category: 'proteinas', price: 54.99, oldPrice: 64.99, rating: 5, reviews: 1234, image: 'mass-gainer.jpg', badge: 'sale'},
+{id: 10, name: 'Creatine HCL', brand: 'Pure Strength', category: 'creatina', price: 34.99, oldPrice: null, rating: 5, reviews: 876, image: 'creatine-hcl.jpg', badge: null},
+{id: 11, name: 'Energy Boost Pre-Workout', brand: 'Explosive', category: 'pre-workout', price: 34.99, oldPrice: null, rating: 4, reviews: 1567, image: 'energy-boost.jpg', badge: null},
+{id: 12, name: 'EAA Complex', brand: 'Amino Force', category: 'aminoacidos', price: 32.99, oldPrice: null, rating: 5, reviews: 1098, image: 'eaa.jpg', badge: null},
+{id: 13, name: 'Omega-3 Fish Oil', brand: 'VitaPro', category: 'vitaminas', price: 22.99, oldPrice: null, rating: 5, reviews: 2345, image: 'omega3.jpg', badge: null},
+{id: 14, name: 'Barra Dominadas Pared', brand: 'Iron Gear', category: 'equipamiento', price: 79.99, oldPrice: 89.99, rating: 5, reviews: 765, image: 'pullup-bar.jpg', badge: 'sale'},
+{id: 15, name: 'Leggings High Performance', brand: 'Iron Wear', category: 'ropa', price: 44.99, oldPrice: null, rating: 5, reviews: 1876, image: 'leggings.jpg', badge: null},
+{id: 16, name: 'Cinturón Levantamiento', brand: 'Iron Gear', category: 'accesorios', price: 49.99, oldPrice: null, rating: 5, reviews: 1234, image: 'belt.jpg', badge: 'hot'},
+{id: 17, name: 'Casein Nocturna', brand: 'Iron Labs', category: 'proteinas', price: 44.99, oldPrice: null, rating: 5, reviews: 1456, image: 'casein.jpg', badge: null},
+{id: 18, name: 'Creatine Kre-Alkalyn', brand: 'Pure Strength', category: 'creatina', price: 29.99, oldPrice: 34.99, rating: 5, reviews: 654, image: 'kre-alkalyn.jpg', badge: 'sale'},
+{id: 19, name: 'Pump Extreme Pre-Workout', brand: 'Explosive', category: 'pre-workout', price: 44.99, oldPrice: null, rating: 5, reviews: 1789, image: 'pump-extreme.jpg', badge: 'hot'},
+{id: 20, name: 'L-Glutamina', brand: 'Amino Force', category: 'aminoacidos', price: 24.99, oldPrice: null, rating: 5, reviews: 987, image: 'glutamine.jpg', badge: null},
+{id: 21, name: 'Vitamina D3 5000 IU', brand: 'VitaPro', category: 'vitaminas', price: 14.99, oldPrice: null, rating: 5, reviews: 1765, image: 'vitamin-d3.jpg', badge: null},
+{id: 22, name: 'Banco Multiposición', brand: 'Iron Gear', category: 'equipamiento', price: 199.99, oldPrice: 229.99, rating: 5, reviews: 543, image: 'bench.jpg', badge: 'sale'},
+{id: 23, name: 'Tank Top Beast Mode', brand: 'Iron Wear', category: 'ropa', price: 24.99, oldPrice: null, rating: 5, reviews: 2134, image: 'tank-top.jpg', badge: null},
+{id: 24, name: 'Guantes Gimnasio Pro', brand: 'Iron Gear', category: 'accesorios', price: 19.99, oldPrice: null, rating: 4, reviews: 1567, image: 'gloves.jpg', badge: null},
+{id: 25, name: 'Vegan Protein', brand: 'Plant Power', category: 'proteinas', price: 39.99, oldPrice: null, rating: 5, reviews: 876, image: 'vegan-protein.jpg', badge: 'new'},
+{id: 26, name: 'Beta-Alanina', brand: 'Amino Force', category: 'aminoacidos', price: 19.99, oldPrice: null, rating: 5, reviews: 1234, image: 'beta-alanine.jpg', badge: null},
+{id: 27, name: 'ZMA Complex', brand: 'VitaPro', category: 'vitaminas', price: 17.99, oldPrice: null, rating: 5, reviews: 1098, image: 'zma.jpg', badge: null},
+{id: 28, name: 'Kettlebell 16kg', brand: 'Iron Gear', category: 'equipamiento', price: 39.99, oldPrice: 44.99, rating: 5, reviews: 765, image: 'kettlebell.jpg', badge: 'sale'},
+{id: 29, name: 'Shorts Training Pro', brand: 'Iron Wear', category: 'ropa', price: 29.99, oldPrice: null, rating: 5, reviews: 1456, image: 'shorts.jpg', badge: null},
+{id: 30, name: 'Botella Hydration 2L', brand: 'Iron Cult', category: 'accesorios', price: 14.99, oldPrice: null, rating: 5, reviews: 2876, image: 'bottle.jpg', badge: null},
+{id: 31, name: 'Colágeno Hidrolizado', brand: 'Joint Health', category: 'vitaminas', price: 27.99, oldPrice: null, rating: 5, reviews: 1345, image: 'collagen.jpg', badge: null},
+{id: 32, name: 'L-Carnitina Liquid', brand: 'Fat Burner', category: 'aminoacidos', price: 29.99, oldPrice: 34.99, rating: 5, reviews: 1876, image: 'carnitine.jpg', badge: 'sale'},
+{id: 33, name: 'Citrulina Malato', brand: 'Pump Enhancer', category: 'pre-workout', price: 24.99, oldPrice: null, rating: 5, reviews: 987, image: 'citrulline.jpg', badge: null},
+{id: 34, name: 'Banda Elástica Set', brand: 'Iron Gear', category: 'equipamiento', price: 24.99, oldPrice: null, rating: 5, reviews: 1654, image: 'resistance-bands.jpg', badge: 'hot'},
+{id: 35, name: 'Sudadera Iron Cult', brand: 'Iron Wear', category: 'ropa', price: 54.99, oldPrice: null, rating: 5, reviews: 1234, image: 'hoodie.jpg', badge: null},
+{id: 36, name: 'Magnesio Líquido', brand: 'Iron Gear', category: 'accesorios', price: 12.99, oldPrice: null, rating: 5, reviews: 1567, image: 'liquid-chalk.jpg', badge: null},
+];
+
+let cart = [];
+let currentFilter = 'all';
+
+function renderProducts() {
+const grid = document.getElementById('productsGrid');
+const filtered = currentFilter === 'all' 
+? products 
+: products.filter(p => p.category === currentFilter);
+
+grid.innerHTML = filtered.map(product => `
+<div class="product-card">
+<div class="product-image">
+<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size: 4rem; filter: grayscale(100%);\\'>📦</div>'">
+${product.badge ? `<div class="product-badge ${product.badge}">${product.badge === 'hot' ? 'HOT' : product.badge === 'new' ? 'NUEVO' : 'OFERTA'}</div>` : ''}
+</div>
+<div class="product-info">
+<div class="product-brand">${product.brand}</div>
+<div class="product-name">${product.name}</div>
+<div class="product-rating">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<span class="rating-count">(${product.reviews})</span>
+</div>
+<div class="product-price-section">
+<div class="product-price">
+<div class="price-current">${product.price}€</div>
+${product.oldPrice ? `<div class="price-old">${product.oldPrice}€</div>` : ''}
+</div>
+<button class="add-to-cart" onclick="addToCart(${product.id})">+ Añadir</button>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function filterProducts(category) {
+currentFilter = category;
+document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+event.target.classList.add('active');
+renderProducts();
+}
+
+function filterByCategory(category) {
+currentFilter = category;
+showPage('home');
+setTimeout(() => {
+document.getElementById('productos').scrollIntoView({behavior: 'smooth'});
+filterProducts(category);
+}, 100);
+}
+
+function searchProducts() {
+const query = document.getElementById('searchInput').value.toLowerCase();
+const grid = document.getElementById('productsGrid');
+const filtered = products.filter(p => 
+p.name.toLowerCase().includes(query) || 
+p.brand.toLowerCase().includes(query) ||
+p.category.toLowerCase().includes(query)
+);
+
+grid.innerHTML = filtered.map(product => `
+<div class="product-card">
+<div class="product-image">
+<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size: 4rem; filter: grayscale(100%);\\'>📦</div>'">
+${product.badge ? `<div class="product-badge ${product.badge}">${product.badge === 'hot' ? 'HOT' : product.badge === 'new' ? 'NUEVO' : 'OFERTA'}</div>` : ''}
+</div>
+<div class="product-info">
+<div class="product-brand">${product.brand}</div>
+<div class="product-name">${product.name}</div>
+<div class="product-rating">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<span class="rating-count">(${product.reviews})</span>
+</div>
+<div class="product-price-section">
+<div class="product-price">
+<div class="price-current">${product.price}€</div>
+${product.oldPrice ? `<div class="price-old">${product.oldPrice}€</div>` : ''}
+</div>
+<button class="add-to-cart" onclick="addToCart(${product.id})">+ Añadir</button>
+</div>
+</div>
+</div>
+`).join('');
+}
+
+function addToCart(productId) {
+const product = products.find(p => p.id === productId);
+const existingItem = cart.find(item => item.id === productId);
+
+if (existingItem) {
+existingItem.quantity++;
+} else {
+cart.push({ ...product, quantity: 1 });
+}
+
+updateCart();
+showNotification('✓ Producto añadido al carrito');
+}
+
+function removeFromCart(productId) {
+cart = cart.filter(item => item.id !== productId);
+updateCart();
+}
+
+function updateQuantity(productId, change) {
+const item = cart.find(item => item.id === productId);
+if (item) {
+item.quantity += change;
+if (item.quantity <= 0) {
+removeFromCart(productId);
+} else {
+updateCart();
+}
+}
+}
+
+function updateCart() {
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+
+cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+if (cart.length === 0) {
+cartItems.innerHTML = `
+<div class="cart-empty">
+<div class="cart-empty-icon">🛒</div>
+<p>Tu carrito está vacío</p>
+<p style="font-size: 0.9rem; margin-top: 0.5rem;">¡Añade productos épicos!</p>
+</div>
+`;
+cartTotal.textContent = '0€';
+} else {
+cartItems.innerHTML = cart.map(item => `
+<div class="cart-item">
+<div class="cart-item-image">
+<img src="${item.image}" alt="${item.name}" onerror="this.parentElement.innerHTML='<div style=\\'font-size: 2rem;\\'>📦</div>'">
+</div>
+<div class="cart-item-info">
+<div class="cart-item-brand">${item.brand}</div>
+<div class="cart-item-name">${item.name}</div>
+<div class="cart-item-price">${item.price}€</div>
+<div class="cart-item-controls">
+<button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+<span class="quantity">${item.quantity}</span>
+<button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+<button class="remove-btn" onclick="removeFromCart(${item.id})">Eliminar</button>
+</div>
+</div>
+</div>
+`).join('');
+
+const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+cartTotal.textContent = total.toFixed(2) + '€';
+}
+}
+
+function toggleCart() {
+document.getElementById('cartSidebar').classList.toggle('open');
+}
+
+function openModal(modalId) {
+document.getElementById(modalId).classList.add('open');
+document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+document.getElementById(modalId).classList.remove('open');
+document.body.style.overflow = 'auto';
+}
+
+function openCheckout() {
+if (cart.length === 0) {
+showNotification('⚠ Tu carrito está vacío');
+return;
+}
+
+const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+const tax = subtotal * 0.21;
+const total = subtotal + tax;
+
+document.getElementById('checkoutSubtotal').textContent = subtotal.toFixed(2) + '€';
+document.getElementById('checkoutTax').textContent = tax.toFixed(2) + '€';
+document.getElementById('checkoutTotal').textContent = total.toFixed(2) + '€';
+
+closeModal('');
+toggleCart();
+openModal('checkoutModal');
+}
+
+function processOrder() {
+closeModal('checkoutModal');
+const orderNumber = 'IC' + Math.random().toString(36).substr(2, 9).toUpperCase();
+document.getElementById('orderNumber').textContent = orderNumber;
+openModal('successModal');
+
+sendOrderConfirmationEmail(orderNumber);
+
+cart = [];
+updateCart();
+}
+
+function sendOrderConfirmationEmail(orderNumber) {
+console.log(`📧 Email de confirmación enviado para el pedido ${orderNumber}`);
+console.log('✓ El usuario recibiría un email con:');
+console.log('  - Número de pedido:', orderNumber);
+console.log('  - Resumen de productos');
+console.log('  - Dirección de envío');
+console.log('  - Código de seguimiento (generado al enviar)');
+console.log('  - Tiempo estimado: 24-48h');
+}
+
+function closeSuccessModal() {
+closeModal('successModal');
+showPage('home');
+window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function handleLogin() {
+closeModal('loginModal');
+showNotification('✓ Sesión iniciada correctamente');
+}
+
+function handleRegister() {
+closeModal('registerModal');
+showNotification('✓ Cuenta creada. ¡Bienvenido al culto!');
+}
+
+function subscribeNewsletter() {
+showNotification('✓ Suscripción confirmada. Revisa tu email para el código de descuento del 15%');
+}
+
+function sendContact() {
+showNotification('✓ Mensaje enviado. Te responderemos en menos de 24h');
+}
+
+function showNotification(message) {
+const notification = document.createElement('div');
+notification.style.cssText = `
+position: fixed;
+top: 100px;
+right: 30px;
+background: linear-gradient(135deg, var(--iron-red), var(--iron-orange));
+color: white;
+padding: 1.2rem 2rem;
+border-radius: 50px;
+font-weight: 700;
+z-index: 10000;
+animation: slideInRight 0.4s ease, slideOutRight 0.4s ease 2.6s;
+box-shadow: 0 10px 30px rgba(196, 30, 58, 0.6);
+font-size: 1rem;
+`;
+notification.textContent = message;
+document.body.appendChild(notification);
+setTimeout(() => notification.remove(), 3000);
+}
+
+function showPage(pageId) {
+document.querySelectorAll('.page-content').forEach(page => {
+page.classList.remove('active');
+});
+document.getElementById(pageId + 'Page').classList.add('active');
+window.scrollTo({top: 0, behavior: 'smooth'});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+link.classList.remove('active');
+});
+}
+
+function toggleFAQ(element) {
+element.classList.toggle('active');
+}
+
+const style = document.createElement('style');
+style.textContent = `
+@keyframes slideInRight {
+from { transform: translateX(400px); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutRight {
+from { transform: translateX(0); opacity: 1; }
+to { transform: translateX(400px); opacity: 0; }
+}
+`;
+document.head.appendChild(style);
+
+renderProducts();
+updateCart();
+</script>
+
+</body>
+</html>
