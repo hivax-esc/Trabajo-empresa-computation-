@@ -1,2 +1,5 @@
 # Trabajo-empresa-computation-
 https://hivax-esc.github.io/Trabajo-empresa-computation-/
+
+
+Vale, quiero que manteniendo el codigo que ya habías hecho, quiero que añadas: al darle clic a cada producto quiero que aparezca su pagina propia de ese producto, con descripción, artículos similares, reseñas reales,  etc, quiero que corrijas el carrito porque no funciona, quiero que te de hasta un codigo de confirmación y numero de envío, quiero que añadas arriba un place holder para añadir videos promocionales, un apartado en el carrito que sea para códigos promocionales y dime donde esta el placeholder para añadir yo los códigos y poder ajustar los porcentajes y que funcione, y que todos los apartados de sobre nosotros, preguntas frecuentes, contacto y todo eso funcionen, tu dime donde estan en el codigo y yo añado los datos, pon tambien place holders en la parte de blog de fitness para videos y fotos
